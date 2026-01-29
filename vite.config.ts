@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
       }
     ],
     // ✅ Base diferente según el entorno
-    base: isDevelopment ? "/" : "/demo-sai-3-aws/",
+    base: isDevelopment ? "/" : "/demo-sai-3-aws-lmmoreira-/",
     resolve: {
       alias: {
         "~": resolve(__dirname, "./app"),
