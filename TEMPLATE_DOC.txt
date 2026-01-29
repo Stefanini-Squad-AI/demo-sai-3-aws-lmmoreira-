@@ -1,0 +1,1356 @@
+📚 User Story Documentation Framework Template
+
+Framework for User Story-Oriented Documentation
+
+This document serves as a replicable base template to create comprehensive technical documentation that enables the creation of well-structured User Stories in any software project.
+
+🎯 Framework Objective
+
+Create technical documentation that enables engineers and Product Owners to write well-structured User Stories, based on a complete view of:
+
+✅ Current Code and Architecture
+
+✅ Business Context and rules
+
+✅ Available Components and APIs
+
+✅ Dependencies and Integrations
+
+✅ Acceptance Criteria Patterns
+
+🏗️ Framework Structure
+
+📁 Resulting File Structure:
+
+docs/
+├── system-overview.md # 🎯 Single source of truth (>95% accuracy)
+└── site/
+├── index.html # 🏠 Navigable main page
+└── modules/
+├── /index.html
+├── /index.html
+└── ... # HTML page per module
+
+Simplified Focus: Only 2 main deliverables for maximum efficiency and adoption.
+
+🤖 Consolidated AI Prompt
+
+Role
+
+You are a senior platform architect and technical writer. Your job is to update the existing documentation of this repository so it accurately reflects the current state of the codebase. The documentation must be US-focused (not code migration), enabling engineers and Product Owners to write well-structured User Stories grounded in a complete view of code, business, architecture, components, and APIs.
+
+Inputs & Constraints
+
+Repository root: current workspace.
+Existing sources: Use README.md, /docs, ADRs, and code comments as authoritative sources.
+Goal: Create comprehensive system-overview.md and module HTML pages for US creation support.
+Target accuracy: Minimum 95% alignment with actual codebase structure.
+Focus: Only 2 deliverables - maximum efficiency, minimum complexity.
+
+Update Goals
+
+Create comprehensive system-overview.md: Produce one unified Markdown file that consolidates:
+
+High-level architecture and domain map
+
+Complete module catalog with responsibilities and dependencies
+
+Public interfaces (APIs/events/jobs) with examples
+
+Data models and business rules
+
+Actors and user journeys
+
+Embedded Mermaid diagrams (architecture + dependencies)
+
+Performance budgets and readiness notes
+
+Task list with statuses
+
+All information oriented to US writing
+
+Create module HTML pages: Generate docs/site/modules//index.html for each module containing:
+
+US development guide specific to the module
+
+Technical foundation (components, dependencies, APIs)
+
+Reusable patterns and acceleration factors
+
+Story complexity guidelines
+
+Acceptance criteria examples
+
+Deliverables
+
+ONLY 2 main files:
+
+✅ docs/system-overview.md - Unified Markdown file containing ALL information necessary for User Story creation
+
+✅ docs/site/modules//index.html - Individual HTML pages for each module with specific US development guides
+
+Method (Execute in Order)
+
+Scan repository: Analyze codebase to identify all modules, frameworks, APIs, data models using README.md, /docs, ADRs, and code comments.
+
+CRITICAL: For frontend projects, perform deep analysis of REAL patterns:
+
+i18n Structure: Examine actual i18n files to identify real structure (folder organization, key patterns, language codes)
+
+Component Architecture: Determine if project uses base components or direct implementation per feature
+
+Form Patterns: Analyze real form implementations (modal vs page, validation approach, notification system)
+
+List Patterns: Examine actual table/list components and their implementation patterns
+
+DO NOT assume or create fictional patterns - document only what actually exists
+
+Create system-overview.md: Build comprehensive unified Markdown file containing:
+
+Platform statistics and architecture overview
+
+Complete module catalog with technical details
+
+All public APIs with request/response examples
+
+Data models and business rules
+
+Embedded Mermaid diagrams (architecture + dependencies)
+
+REAL frontend patterns analysis (i18n structure, form/list patterns, component architecture)
+
+User Story development patterns and templates
+
+Performance budgets and acceptance criteria patterns
+
+Generate module HTML pages: For each identified module, create docs/site/modules//index.html with:
+
+Module-specific US development guide
+
+Technical foundation (components, dependencies, interfaces)
+
+Reusable patterns and development acceleration factors
+
+Story complexity guidelines specific to the module
+
+Module-specific acceptance criteria examples
+
+Example Implementation
+
+If new notifications/ service is discovered:
+
+In system-overview.md:
+
+Add notifications module to catalog section
+
+Include APIs: POST /api/notifications/send, GET /api/notifications/history
+
+Document data models: NotificationTemplate, NotificationLog
+
+Add business rules: "Notifications expire after 30 days"
+
+Include in dependency diagram
+
+Add US examples: "As a user, I want to receive notifications to track updates"
+
+Create docs/site/modules/notifications/index.html:
+
+US templates specific to notifications domain
+
+Technical details: SignalR integration, email providers
+
+Reusable components: NotificationService, EmailTemplate
+
+Complexity guidelines: Simple (1-2 pts) for basic notifications, Complex (5-8 pts) for multi-channel
+
+Output Quality Standards
+
+✅ Minimum 95% accuracy with actual codebase structure
+
+✅ All information needed for US creation present in system-overview.md
+
+✅ Each module has corresponding HTML page with US-specific guidance
+
+✅ Embedded Mermaid diagrams represent current architecture
+
+✅ APIs documented with realistic request/response examples
+
+✅ Business rules specific to each module documented
+
+✅ Performance budgets and acceptance criteria patterns included
+
+✅ Final Validation Checklist
+
+[ ] docs/system-overview.md created and complete with all modules, APIs, business rules, diagrams
+
+[ ] All modules have HTML pages in docs/site/modules//index.html
+
+[ ] 95%+ accuracy with actual project structure achieved
+
+[ ] Mermaid diagrams embedded and represent current architecture
+
+[ ] APIs documented with request/response examples
+
+[ ] REAL frontend patterns analyzed and documented (no fictional components or patterns)
+
+[ ] Actual i18n structure documented (real files, real key patterns, real language codes)
+
+[ ] Real form/list patterns documented (actual implementation approach, not assumed patterns)
+
+[ ] US patterns and templates specific to each module included
+
+[ ] Business rules and acceptance criteria patterns documented
+
+🚨 CRITICAL VALIDATION
+
+Before finalizing documentation, verify:
+
+✅ No fictional base components mentioned (BaseForm, BaseDataTable, etc.) unless they actually exist
+
+✅ i18n examples match real project structure (file paths, key organization, language codes)
+
+✅ Form patterns reflect actual implementation (modal vs page, validation approach)
+
+✅ All code examples use real project patterns not generic assumptions
+
+📋 Template: system-overview.md
+
+Standard Structure for Unified File:
+
+[PROJECT_NAME] System - Overview for User Stories
+
+Version: [DATE]
+Purpose: Single source of truth for creating well-structured User Stories
+
+📊 Platform Statistics
+
+Modules: [X] documented modules
+
+Code Reuse: [X]% reusable components
+
+UI Components: [X]+ available components
+
+API Coverage: [X]% documented endpoints
+
+Supported Languages: [X] languages
+
+🏗️ High-Level Architecture
+
+Technology Stack
+
+Backend: [Technology + Version]
+Frontend: [Technology + Version]
+Database: [Technology + Version]
+Cache: [Technology + Version]
+Others: [Technology list]
+
+Architectural Patterns
+
+Repository Pattern: For data access
+
+Service Layer: Encapsulated business logic
+
+Multi-tenancy: Isolation by [FIELD]
+
+Authentication: [Supported schemes]
+
+📚 Module Catalog
+
+[MODULE-1]
+
+ID: [module-id]
+Purpose: [Business description]
+Key Components: [List]
+Public APIs:
+
+GET /api/[endpoint] - [Description]
+
+POST /api/[endpoint] - [Description]
+
+US Examples:
+
+As [persona], I want [functionality] for [value]
+
+[MODULE-2]
+
+[Repeat structure...]
+
+🔄 Architecture Diagram
+
+Unable to render rich display
+
+No diagram type detected matching given configuration for text: [UPDATED MERMAID DIAGRAM]
+
+📊 Data Models
+
+[ENTITY-1]
+
+public class [Name]
+{
+public [Type] [Field] { get; set; }
+// ...
+}
+
+📋 Business Rules by Module
+
+[MODULE] - Rules
+
+
+
+
+
+
+
+
+
+🌐 Internationalization and Translation
+
+i18n File Structure
+
+IMPORTANT: Analyze the project to identify the real i18n structure. The examples below are generic and must be adapted.
+
+Common Structure Patterns:
+
+Option A - Structure with locales folder:
+
+src/[project]/frontend/src/i18n/
+├── index.js # Main configuration
+├── locales/
+│ ├── pt-BR.json # Portuguese Brazil
+│ ├── en.json # English
+│ └── es.json # Spanish
+
+Option B - Direct structure:
+
+src/[project]/frontend/src/i18n/
+├── i18n.js # Main configuration
+├── pt-BR.json # Portuguese Brazil
+├── en.json # English
+└── es.json # Spanish
+
+Common Key Structures:
+
+Pattern A - Simple Structure:
+
+{
+"common": { "save": "Save", "cancel": "Cancel" },
+"pages": { "home": { "title": "Home" } },
+"forms": { "validation": { "required": "Required field" } }
+}
+
+Pattern B - Component Structure:
+
+{
+"components": {
+"labels": { "save": "Save", "cancel": "Cancel" },
+"modal[Feature]": { "title": "Modal Title" }
+},
+"pages": {
+"[feature]Crud": { "listTitle": "Item List" }
+}
+}
+
+Generic Vue I18n Configuration
+
+// Generic example - adapt according to found structure
+import { createI18n } from "vue-i18n";
+import [lang1] from "./[language-file1].json";
+import [lang2] from "./[language-file2].json";
+
+const messages = {
+[key1]: [lang1],
+[key2]: [lang2],
+};
+
+const i18n = createI18n({
+legacy: false,
+locale: "[default-language]",
+fallbackLocale: "[fallback-language]",
+messages,
+globalInjection: true,
+});
+
+export default i18n;
+
+📋 Form and List Patterns
+
+Component Structure Analysis
+
+IMPORTANT: Analyze the project to identify if there are reusable base components or if each functionality implements its own components.
+
+Common Architecture Patterns:
+
+Pattern A - Reusable Base Components:
+
+src/[project]/frontend/src/
+├── components/
+│ ├── Forms/
+│ │ ├── BaseForm.vue # Reusable base form
+│ │ └── [Entity]Form.vue # Specific forms
+│ ├── Lists/
+│ │ ├── BaseDataTable.vue # Base table with pagination
+│ │ └── [Entity]List.vue # Specific lists
+│ └── UI/
+│ ├── ConfirmDialog.vue # Reusable UI components
+│ └── LoadingSpinner.vue
+├── views/
+│ └── [Entity]/
+│ ├── [Entity]CRUD.vue # Complete CRUD pages
+│ └── [Entity]View.vue # Views
+
+Pattern B - Direct Implementation (no base components):
+
+src/[project]/frontend/src/
+├── components/
+│ ├── Modals/
+│ │ └── Modal[Feature].vue # Specific modals
+│ ├── [feature]/
+│ │ └── [Feature]Form.vue # Specific forms
+│ └── customized-[component]/
+│ └── Customized[Component].vue
+├── views/
+│ ├── [Feature]CRUD.vue # Direct CRUD in view
+│ └── [Feature]Manager.vue # Management pages
+
+Identified Implementation Patterns
+
+Analysis Instructions:
+
+Identify form patterns:
+
+Are there reusable base components?
+
+Are forms implemented in modals or pages?
+
+Which UI library is used? (Vuetify, Element UI, etc.)
+
+Identify validation patterns:
+
+Uses external library (Vee-Validate, etc.)?
+
+Custom validation with rules?
+
+How are error messages displayed?
+
+Identify notification patterns:
+
+Uses global snackbar/toast?
+
+How are notifications managed?
+
+Identify list patterns:
+
+Uses specific table component?
+
+How is pagination implemented?
+
+How are actions implemented (edit, delete)?
+
+Generic Modal Example (adapt according to project):
+
+<template>
+<[dialog-component] v-model="dialog" [specific-props]>
+<template #activator='{ props }'>
+<[button-component] v-bind="props">
+{{ t("[i18n-key].buttonText") }}
+</[button-component]>
+</template>
+<[card-component]>
+<[card-title]>{{ t("[i18n-key].title") }}</[card-title]>
+<[card-content]>
+<[form-component] [validation-props]>
+<[input-component]
+v-model="fieldValue"
+:label="t('[i18n-key].fieldLabel')"
+[validation-props]
+/>
+</[form-component]>
+</[card-content]>
+<[card-actions]>
+<[button-component] @click="closeDialog">
+{{ t("[i18n-key].cancel") }}
+</[button-component]>
+<[button-component] @click="submitForm">
+{{ t("[i18n-key].save") }}
+</[button-component]>
+</[card-actions]>
+</[card-component]>
+</[dialog-component]>
+</template>
+
+<script setup>
+import { ref, [other-imports] } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+// Adapt according to found patterns (inject, composables, etc.)
+
+const dialog = ref(false);
+const fieldValue = ref("");
+// Other states as needed
+
+const submitForm = () => {
+// Validation and submission logic
+// Adapt according to found patterns
+};
+
+const closeDialog = () => {
+dialog.value = false;
+// Reset form logic
+};
+</script>
+
+Generic List Example (adapt according to project):
+
+<template>
+<[layout-component]>
+<[container-component]>
+<[card-component]>
+<[card-title]>
+<h3>{{ t("[i18n-key].listTitle") }}</h3>
+<[button-component] @click="openCreateDialog">
+{{ t("[i18n-key].newItem") }}
+</[button-component]>
+</[card-title]>
+
+<!-- Search (if exists) -->
+<[search-component]
+v-model="searchText"
+@input="handleSearch"
+:placeholder="t('[i18n-key].searchPlaceholder')"
+/>
+
+<!-- Table/List -->
+<[table-component]
+:headers="headers"
+:items="items"
+[table-props]
+>
+<template #[actions-slot]='{ item }'>
+<[icon-button] @click="editItem(item)">[edit-icon]</[icon-button]
+<[icon-button] @click="deleteItem(item)">[delete-icon]</[icon-button>
+</template>
+</[table-component]>
+
+<!-- Create/Edit Dialog -->
+<[dialog-component] v-model="dialog">
+<[form-component] @submit="submitForm">
+<[form-title]>{{ dialogTitle }}</[form-title]>
+<[form-content]>
+<[input-component]
+v-model="form.field"
+:label="t('[i18n-key].fieldLabel')"
+[validation-props]
+/>
+</[form-content]>
+<[form-actions]>
+<[button-component] @click="closeDialog">
+{{ t("[i18n-key].cancel") }}
+</[button-component]>
+<[button-component] type="submit">
+{{ t("[i18n-key].save") }}
+</[button-component]>
+</[form-actions]>
+</[form-component]>
+</[dialog-component]>
+</[card-component]>
+</[container-component]>
+</[layout-component]>
+</template>
+
+<script setup>
+import { ref, computed, onMounted } from "vue";
+import { useI18n } from "vue-i18n";
+// Project-specific imports
+
+const { t } = useI18n();
+// Other composables/injects according to found patterns
+
+// Reactive state
+const items = ref([]);
+const form = ref({});
+const dialog = ref(false);
+const searchText = ref("");
+
+// Computed properties
+const headers = computed(() => [
+// Define headers according to found structure
+]);
+
+// Methods
+const handleSearch = () => {
+// Search implementation
+};
+
+const openCreateDialog = () => {
+// Logic to open create dialog
+};
+
+const editItem = (item) => {
+// Edit logic
+};
+
+const deleteItem = (item) => {
+// Delete logic
+};
+
+const submitForm = () => {
+// Submission logic
+};
+
+onMounted(() => {
+// Load initial data
+});
+</script>
+
+Analysis Key Points:
+
+✅ Identify what the project USES:
+
+Which UI library? (Vuetify, Element UI, Quasar, etc.)
+
+Are there base components or direct implementation?
+
+How are notifications managed?
+
+Which validation pattern is used?
+
+How are i18n keys structured?
+
+Is there a default layout or is each view independent?
+
+❌ Avoid assuming patterns without analysis:
+
+Don't assume existence of base components
+
+Don't assume specific i18n structure
+
+Don't assume external validation libraries
+
+Don't assume state management patterns
+
+Don't assume specific folder structure
+
+🎯 User Story Patterns
+
+Templates by Domain
+
+[DOMAIN] Stories
+
+Pattern: As [persona] I want [action] for [value]
+
+Example 1: As [user], I want [function] for [benefit]
+
+Example 2: As [admin], I want [control] for [management]
+
+Story Complexity
+
+Simple (1-2 pts): CRUD with existing patterns
+
+Medium (3-5 pts): Business logic + validation
+
+Complex (5-8 pts): Multi-system integrations
+
+Acceptance Criteria Patterns
+
+Authentication: Must validate [conditions]
+
+Validation: Must verify [rules]
+
+Performance: Must respond within [time]
+
+Error: Must display [message] when [condition]
+
+⚡ Performance Budgets
+
+Loading Time: < [X]s (First Contentful Paint)
+
+API Response: < [X]ms (P95)
+
+DB Queries: < [X]ms (P95)
+
+Cache Hit Ratio: > [X]%
+
+Real-time Latency: < [X]ms
+
+🚨 Readiness Considerations
+
+Technical Risks
+
+[RISK-1]: [Description] → [Mitigation]
+
+[RISK-2]: [Description] → [Mitigation]
+
+Tech Debt
+
+[DEBT-1]: [Impact] → [Resolution plan]
+
+US Sequencing
+
+Prerequisites: [Dependency list]
+
+Recommended order: [Development sequence]
+
+✅ Task List
+
+Completed
+
+[x] [TASK-ID]: [Description] - Status: done
+
+Pending
+
+[ ] [TASK-ID]: [Description] - Status: pending
+
+Obsolete
+
+[~] [TASK-ID]: [Description] - Status: outdated
+
+📈 Success Metrics
+
+Adoption
+
+Target: [X]% of users use functionality
+
+Engagement: Average time > [X] minutes
+
+Retention: [X]% return monthly
+
+Business Impact
+
+[METRIC-1]: [X]% improvement in [aspect]
+
+[METRIC-2]: [X]% reduction in [problem]
+
+Last update: [DATE]
+Codebase accuracy: [X]%
+
+
+
+---
+
+## 🎨 **Template: HTML Module Page**
+
+### **Standard Structure for `docs/site/modules/[module]/index.html`:**
+
+```html
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>[MODULE] - User Story Development Guide</title>
+<style>
+/* Responsive and accessible CSS */
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+/* ... more styles ... */
+</style>
+</head>
+<body>
+<div class='container'>
+<header class='header'>
+<h1>📦 [MODULE_NAME]</h1>
+<p>User Story Development Guide</p>
+</header>
+
+<section class='overview'>
+<h2>📋 Overview</h2>
+<p><strong>Purpose:</strong> [Module description]</p>
+<p><strong>Business Context:</strong> [How it fits in the business]</p>
+</section>
+
+<section class='us-guide'>
+<h2>🎯 User Story Development Guide</h2>
+
+<h3>📝 Specific US Templates</h3>
+<ul>
+<li><strong>[DOMAIN-1]:</strong> As [persona], I want [action] for [value]</li>
+<li><strong>[DOMAIN-2]:</strong> As [persona], I want [action] for [value]</li>
+</ul>
+
+<h3>⚡ Development Acceleration Factors</h3>
+<ul>
+<li><strong>[COMPONENT-1]:</strong> [Reuse description]</li>
+<li><strong>[PATTERN-1]:</strong> [How it accelerates development]</li>
+</ul>
+
+<h3>📊 Complexity Guidelines</h3>
+<ul>
+<li><strong>Simple (1-2 pts):</strong> [Module-specific examples]</li>
+<li><strong>Medium (3-5 pts):</strong> [Module-specific examples]</li>
+<li><strong>Complex (5-8 pts):</strong> [Module-specific examples]</li>
+</ul>
+</section>
+
+<section class='technical'>
+<h2>🔧 Technical Foundation</h2>
+
+<h3>🏗️ Key Components</h3>
+<ul>
+<li><strong>[COMPONENT-1]:</strong> [Description and responsibility]</li>
+<li><strong>[COMPONENT-2]:</strong> [Description and responsibility]</li>
+</ul>
+
+<h3>🔗 Dependencies</h3>
+<ul>
+<li><strong>[MODULE-DEP-1]:</strong> [Dependency type]</li>
+<li><strong>[MODULE-DEP-2]:</strong> [Dependency type]</li>
+</ul>
+
+<h3>🌐 Public Interfaces</h3>
+<pre><code>
+GET /api/[endpoint] - [Description]
+POST /api/[endpoint] - [Description]
+</code></pre>
+</section>
+
+<footer>
+<p><a href='../index.html'>← Back to Index</a></p>
+<p><em>Last update: [DATE]</em></p>
+</footer>
+</div>
+</body>
+</html>
+
+Template Version: 2.0
+Focus: system-overview.md + site/modules/ structure
+Minimum Accuracy Target: 95%
+
+
+
+For more information, see https://docs.github.com/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams 
+
+[UPDATED MERMAID DIAGRAM]
+
+📊 Data Models
+
+[ENTITY-1]
+
+public class [Name]
+{
+    public [Type] [Field] { get; set; }
+    // ...
+}
+
+📋 Business Rules by Module
+
+[MODULE] - Rules
+
+
+
+
+
+🌐 Internationalization and Translation
+
+i18n File Structure
+
+IMPORTANT: Analyze the project to identify the real i18n structure. The examples below are generic and must be adapted.
+
+Common Structure Patterns:
+
+Option A - Structure with locales folder:
+
+src/[project]/frontend/src/i18n/
+├── index.js                    # Main configuration
+├── locales/
+│   ├── pt-BR.json             # Portuguese Brazil
+│   ├── en.json                # English
+│   └── es.json                # Spanish
+
+Option B - Direct structure:
+
+src/[project]/frontend/src/i18n/
+├── i18n.js                    # Main configuration
+├── pt-BR.json                 # Portuguese Brazil
+├── en.json                    # English
+└── es.json                    # Spanish
+
+Common Key Structures:
+
+Pattern A - Simple Structure:
+
+{
+  "common": { "save": "Save", "cancel": "Cancel" },
+  "pages": { "home": { "title": "Home" } },
+  "forms": { "validation": { "required": "Required field" } }
+}
+
+Pattern B - Component Structure:
+
+{
+  "components": {
+    "labels": { "save": "Save", "cancel": "Cancel" },
+    "modal[Feature]": { "title": "Modal Title" }
+  },
+  "pages": {
+    "[feature]Crud": { "listTitle": "Item List" }
+  }
+}
+
+Generic Vue I18n Configuration
+
+// Generic example - adapt according to found structure
+import { createI18n } from "vue-i18n";
+import [lang1] from "./[language-file1].json";
+import [lang2] from "./[language-file2].json";
+
+const messages = {
+  [key1]: [lang1],
+  [key2]: [lang2],
+};
+
+const i18n = createI18n({
+  legacy: false,
+  locale: "[default-language]",
+  fallbackLocale: "[fallback-language]",
+  messages,
+  globalInjection: true,
+});
+
+export default i18n;
+
+📋 Form and List Patterns
+
+Component Structure Analysis
+
+IMPORTANT: Analyze the project to identify if there are reusable base components or if each functionality implements its own components.
+
+Common Architecture Patterns:
+
+Pattern A - Reusable Base Components:
+
+src/[project]/frontend/src/
+├── components/
+│   ├── Forms/
+│   │   ├── BaseForm.vue           # Reusable base form
+│   │   └── [Entity]Form.vue       # Specific forms
+│   ├── Lists/
+│   │   ├── BaseDataTable.vue      # Base table with pagination
+│   │   └── [Entity]List.vue       # Specific lists
+│   └── UI/
+│       ├── ConfirmDialog.vue      # Reusable UI components
+│       └── LoadingSpinner.vue
+├── views/
+│   └── [Entity]/
+│       ├── [Entity]CRUD.vue       # Complete CRUD pages
+│       └── [Entity]View.vue       # Views
+
+Pattern B - Direct Implementation (no base components):
+
+src/[project]/frontend/src/
+├── components/
+│   ├── Modals/
+│   │   └── Modal[Feature].vue     # Specific modals
+│   ├── [feature]/
+│   │   └── [Feature]Form.vue      # Specific forms
+│   └── customized-[component]/
+│       └── Customized[Component].vue
+├── views/
+│   ├── [Feature]CRUD.vue          # Direct CRUD in view
+│   └── [Feature]Manager.vue       # Management pages
+
+Identified Implementation Patterns
+
+Analysis Instructions:
+
+Identify form patterns:
+
+Are there reusable base components?
+
+Are forms implemented in modals or pages?
+
+Which UI library is used? (Vuetify, Element UI, etc.)
+
+Identify validation patterns:
+
+Uses external library (Vee-Validate, etc.)?
+
+Custom validation with rules?
+
+How are error messages displayed?
+
+Identify notification patterns:
+
+Uses global snackbar/toast?
+
+How are notifications managed?
+
+Identify list patterns:
+
+Uses specific table component?
+
+How is pagination implemented?
+
+How are actions implemented (edit, delete)?
+
+Generic Modal Example (adapt according to project):
+
+<template>
+  <[dialog-component] v-model="dialog" [specific-props]>
+    <template #activator="{ props }">
+      <[button-component] v-bind="props">
+        {{ t("[i18n-key].buttonText") }}
+      </[button-component]>
+    </template>
+    <[card-component]>
+      <[card-title]>{{ t("[i18n-key].title") }}</[card-title]>
+      <[card-content]>
+        <[form-component] [validation-props]>
+          <[input-component]
+            v-model="fieldValue"
+            :label="t('[i18n-key].fieldLabel')"
+            [validation-props]
+          />
+        </[form-component]>
+      </[card-content]>
+      <[card-actions]>
+        <[button-component] @click="closeDialog">
+          {{ t("[i18n-key].cancel") }}
+        </[button-component]>
+        <[button-component] @click="submitForm">
+          {{ t("[i18n-key].save") }}
+        </[button-component]>
+      </[card-actions]>
+    </[card-component]>
+  </[dialog-component]>
+</template>
+
+<script setup>
+import { ref, [other-imports] } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+// Adapt according to found patterns (inject, composables, etc.)
+
+const dialog = ref(false);
+const fieldValue = ref("");
+// Other states as needed
+
+const submitForm = () => {
+  // Validation and submission logic
+  // Adapt according to found patterns
+};
+
+const closeDialog = () => {
+  dialog.value = false;
+  // Reset form logic
+};
+</script>
+
+Generic List Example (adapt according to project):
+
+<template>
+  <[layout-component]>
+    <[container-component]>
+      <[card-component]>
+        <[card-title]>
+          <h3>{{ t("[i18n-key].listTitle") }}</h3>
+          <[button-component] @click="openCreateDialog">
+            {{ t("[i18n-key].newItem") }}
+          </[button-component]>
+        </[card-title]>
+
+        <!-- Search (if exists) -->
+        <[search-component]
+          v-model="searchText"
+          @input="handleSearch"
+          :placeholder="t('[i18n-key].searchPlaceholder')"
+        />
+        
+        <!-- Table/List -->
+        <[table-component]
+          :headers="headers"
+          :items="items"
+          [table-props]
+        >
+          <template #[actions-slot]="{ item }">
+            <[icon-button] @click="editItem(item)">[edit-icon]</[icon-button]
+            <[icon-button] @click="deleteItem(item)">[delete-icon]</[icon-button>
+          </template>
+        </[table-component]>
+
+        <!-- Create/Edit Dialog -->
+        <[dialog-component] v-model="dialog">
+          <[form-component] @submit="submitForm">
+            <[form-title]>{{ dialogTitle }}</[form-title]>
+            <[form-content]>
+              <[input-component]
+                v-model="form.field"
+                :label="t('[i18n-key].fieldLabel')"
+                [validation-props]
+              />
+            </[form-content]>
+            <[form-actions]>
+              <[button-component] @click="closeDialog">
+                {{ t("[i18n-key].cancel") }}
+              </[button-component]>
+              <[button-component] type="submit">
+                {{ t("[i18n-key].save") }}
+              </[button-component]>
+            </[form-actions]>
+          </[form-component]>
+        </[dialog-component]>
+      </[card-component]>
+    </[container-component]>
+  </[layout-component]>
+</template>
+
+<script setup>
+import { ref, computed, onMounted } from "vue";
+import { useI18n } from "vue-i18n";
+// Project-specific imports
+
+const { t } = useI18n();
+// Other composables/injects according to found patterns
+
+// Reactive state
+const items = ref([]);
+const form = ref({});
+const dialog = ref(false);
+const searchText = ref("");
+
+// Computed properties
+const headers = computed(() => [
+  // Define headers according to found structure
+]);
+
+// Methods
+const handleSearch = () => {
+  // Search implementation
+};
+
+const openCreateDialog = () => {
+  // Logic to open create dialog
+};
+
+const editItem = (item) => {
+  // Edit logic
+};
+
+const deleteItem = (item) => {
+  // Delete logic
+};
+
+const submitForm = () => {
+  // Submission logic
+};
+
+onMounted(() => {
+  // Load initial data
+});
+</script>
+
+Analysis Key Points:
+
+✅ Identify what the project USES:
+
+Which UI library? (Vuetify, Element UI, Quasar, etc.)
+
+Are there base components or direct implementation?
+
+How are notifications managed?
+
+Which validation pattern is used?
+
+How are i18n keys structured?
+
+Is there a default layout or is each view independent?
+
+❌ Avoid assuming patterns without analysis:
+
+Don't assume existence of base components
+
+Don't assume specific i18n structure
+
+Don't assume external validation libraries
+
+Don't assume state management patterns
+
+Don't assume specific folder structure
+
+🎯 User Story Patterns
+
+Templates by Domain
+
+[DOMAIN] Stories
+
+Pattern: As [persona] I want [action] for [value]
+
+Example 1: As [user], I want [function] for [benefit]
+
+Example 2: As [admin], I want [control] for [management]
+
+Story Complexity
+
+Simple (1-2 pts): CRUD with existing patterns
+
+Medium (3-5 pts): Business logic + validation
+
+Complex (5-8 pts): Multi-system integrations
+
+Acceptance Criteria Patterns
+
+Authentication: Must validate [conditions]
+
+Validation: Must verify [rules]
+
+Performance: Must respond within [time]
+
+Error: Must display [message] when [condition]
+
+⚡ Performance Budgets
+
+Loading Time: < [X]s (First Contentful Paint)
+
+API Response: < [X]ms (P95)
+
+DB Queries: < [X]ms (P95)
+
+Cache Hit Ratio: > [X]%
+
+Real-time Latency: < [X]ms
+
+🚨 Readiness Considerations
+
+Technical Risks
+
+[RISK-1]: [Description] → [Mitigation]
+
+[RISK-2]: [Description] → [Mitigation]
+
+Tech Debt
+
+[DEBT-1]: [Impact] → [Resolution plan]
+
+US Sequencing
+
+Prerequisites: [Dependency list]
+
+Recommended order: [Development sequence]
+
+✅ Task List
+
+Completed
+
+[x] [TASK-ID]: [Description] - Status: done
+
+Pending
+
+[ ] [TASK-ID]: [Description] - Status: pending
+
+Obsolete
+
+[~] [TASK-ID]: [Description] - Status: outdated
+
+📈 Success Metrics
+
+Adoption
+
+Target: [X]% of users use functionality
+
+Engagement: Average time > [X] minutes
+
+Retention: [X]% return monthly
+
+Business Impact
+
+[METRIC-1]: [X]% improvement in [aspect]
+
+[METRIC-2]: [X]% reduction in [problem]
+
+Last update: [DATE]
+Codebase accuracy: [X]%
+
+
+---
+
+## 🎨 **Template: HTML Module Page**
+
+### **Standard Structure for `docs/site/modules/[module]/index.html`:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[MODULE] - User Story Development Guide</title>
+    <style>
+        /* Responsive and accessible CSS */
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        /* ... more styles ... */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📦 [MODULE_NAME]</h1>
+            <p>User Story Development Guide</p>
+        </header>
+
+        <section class="overview">
+            <h2>📋 Overview</h2>
+            <p><strong>Purpose:</strong> [Module description]</p>
+            <p><strong>Business Context:</strong> [How it fits in the business]</p>
+        </section>
+
+        <section class="us-guide">
+            <h2>🎯 User Story Development Guide</h2>
+            
+            <h3>📝 Specific US Templates</h3>
+            <ul>
+                <li><strong>[DOMAIN-1]:</strong> As [persona], I want [action] for [value]</li>
+                <li><strong>[DOMAIN-2]:</strong> As [persona], I want [action] for [value]</li>
+            </ul>
+
+            <h3>⚡ Development Acceleration Factors</h3>
+            <ul>
+                <li><strong>[COMPONENT-1]:</strong> [Reuse description]</li>
+                <li><strong>[PATTERN-1]:</strong> [How it accelerates development]</li>
+            </ul>
+
+            <h3>📊 Complexity Guidelines</h3>
+            <ul>
+                <li><strong>Simple (1-2 pts):</strong> [Module-specific examples]</li>
+                <li><strong>Medium (3-5 pts):</strong> [Module-specific examples]</li>
+                <li><strong>Complex (5-8 pts):</strong> [Module-specific examples]</li>
+            </ul>
+        </section>
+
+        <section class="technical">
+            <h2>🔧 Technical Foundation</h2>
+            
+            <h3>🏗️ Key Components</h3>
+            <ul>
+                <li><strong>[COMPONENT-1]:</strong> [Description and responsibility]</li>
+                <li><strong>[COMPONENT-2]:</strong> [Description and responsibility]</li>
+            </ul>
+
+            <h3>🔗 Dependencies</h3>
+            <ul>
+                <li><strong>[MODULE-DEP-1]:</strong> [Dependency type]</li>
+                <li><strong>[MODULE-DEP-2]:</strong> [Dependency type]</li>
+            </ul>
+
+            <h3>🌐 Public Interfaces</h3>
+            <pre><code>
+GET /api/[endpoint] - [Description]
+POST /api/[endpoint] - [Description]
+            </code></pre>
+        </section>
+
+        <footer>
+            <p><a href="../index.html">← Back to Index</a></p>
+            <p><em>Last update: [DATE]</em></p>
+        </footer>
+    </div>
+</body>
+</html>
+
+Template Version: 2.0  
+Focus: system-overview.md + site/modules/ structure  
+Minimum Accuracy Target: 95%
+

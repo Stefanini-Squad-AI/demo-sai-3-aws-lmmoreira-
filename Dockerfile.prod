@@ -1,0 +1,42 @@
+# Etapa 1: Construcción
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# Copiar los archivos necesarios para instalar dependencias
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# Copiar el resto del código fuente
+COPY . .
+
+# Definir las variables directamente con valores predeterminados
+ENV VITE_USE_MOCKS=false
+ENV VITE_API_BASE_URL=http://18.217.121.166:8082/api
+
+# Verificar los valores de las variables (para depuración)
+RUN echo "VITE_USE_MOCKS=${VITE_USE_MOCKS}" && echo "VITE_API_BASE_URL=${VITE_API_BASE_URL}"
+
+# Generar los archivos estáticos
+RUN npm run build
+
+# Etapa 2: Servidor estático con nginx
+FROM nginx:stable-alpine
+
+# Copiar los archivos generados al directorio de nginx
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Configurar nginx con un archivo personalizado
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+# Propagar las variables de entorno a la etapa final
+ENV VITE_USE_MOCKS=false
+ENV VITE_API_BASE_URL=http://18.217.121.166:8082/api
+
+# Comando temporal para verificar las variables de entorno
+RUN printenv | grep VITE_
+
+# Exponer el puerto 80
+EXPOSE 80
+
+# Comando para iniciar nginx
+CMD ["nginx", "-g", "daemon off;"]

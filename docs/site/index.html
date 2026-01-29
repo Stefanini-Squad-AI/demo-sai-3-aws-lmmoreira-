@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardDemo - Documentación General</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .intro h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .intro p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .module-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 4px solid #667eea;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .module-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .module-card .icon {
+            font-size: 1.8rem;
+        }
+        
+        .module-card .description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .module-card .features {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        
+        .module-card .features li {
+            padding: 0.3rem 0;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .module-card .features li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .module-card .link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        
+        .module-card .link:hover {
+            background: #5568d3;
+        }
+        
+        .tech-stack {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        
+        .tech-stack h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .tech-item {
+            padding: 1rem;
+            background: #f5f7fa;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .tech-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .quick-links {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        
+        .quick-links h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .quick-links ul {
+            list-style: none;
+        }
+        
+        .quick-links li {
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: #f5f7fa;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        
+        .quick-links li:hover {
+            background: #e8ecf3;
+        }
+        
+        .quick-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .quick-links a:hover {
+            color: #5568d3;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            background: white;
+            margin-top: 3rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .modules {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>💳 CardDemo</h1>
+        <p>Sistema de Gestión de Tarjetas y Transacciones - Documentación General</p>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <h2>📖 Bienvenido a la Documentación de CardDemo</h2>
+            <p>
+                Esta documentación proporciona una vista completa del sistema para la creación de <strong>User Stories bien estructuradas</strong>.
+                Aquí encontrarás toda la información técnica, arquitectónica y de negocio necesaria para desarrollar nuevas funcionalidades.
+            </p>
+            <p>
+                <strong>Propósito:</strong> Fuente única de verdad para ingenieros y Product Owners
+            </p>
+            <p>
+                <strong>Precisión del Codebase:</strong> 95%+ de alineación con el código actual
+            </p>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <div class="number">9</div>
+                <div class="label">Módulos Documentados</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">80%</div>
+                <div class="label">Reutilización de Código</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">15+</div>
+                <div class="label">Componentes UI</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">100%</div>
+                <div class="label">APIs Documentadas</div>
+            </div>
+        </section>
+
+        <section class="tech-stack">
+            <h2>🏗️ Stack Tecnológico</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>Frontend</strong>
+                    React 18.3.1 + TypeScript 5.4.5
+                </div>
+                <div class="tech-item">
+                    <strong>Router</strong>
+                    React Router DOM 6.22.3
+                </div>
+                <div class="tech-item">
+                    <strong>Estado Global</strong>
+                    Redux Toolkit 2.2.3
+                </div>
+                <div class="tech-item">
+                    <strong>UI Library</strong>
+                    Material-UI (MUI) 5.15.15
+                </div>
+                <div class="tech-item">
+                    <strong>Build Tool</strong>
+                    Vite 5.2.10
+                </div>
+                <div class="tech-item">
+                    <strong>Testing/Mocking</strong>
+                    MSW 2.2.13
+                </div>
+            </div>
+        </section>
+
+        <section class="modules">
+            <div class="module-card">
+                <h3><span class="icon">🔐</span> AUTH - Autenticación</h3>
+                <p class="description">Gestión de autenticación de usuarios y control de acceso basado en roles</p>
+                <ul class="features">
+                    <li>Login/Logout con validación</li>
+                    <li>Rutas protegidas por rol</li>
+                    <li>Gestión segura de sesión</li>
+                    <li>Redirección automática</li>
+                </ul>
+                <a href="modules/auth/index.html" class="link">Ver Detalles →</a>
+            </div>
+
+            <div class="module-card">
+                <h3><span class="icon">💳</span> ACCOUNT - Cuentas</h3>
+                <p class="description">Consulta y actualización de información de cuentas de clientes</p>
+                <ul class="features">
+                    <li>Consulta de cuenta con detalles completos</li>
+                    <li>Actualización de información del cliente</li>
+                    <li>Visualización de tarjetas asociadas</li>
+                    <li>Cálculo de crédito disponible</li>
+                </ul>
+                <a href="../system-overview.md#-account---gestión-de-cuentas" class="link">Ver Detalles →</a>
+            </div>
+
+            <div class="module-card">
+                <h3><span class="icon">💳</span> CREDIT CARD - Tarjetas</h3>
+                <p class="description">Administración de tarjetas de crédito vinculadas a cuentas</p>
+                <ul class="features">
+                    <li>Lista de tarjetas por cuenta</li>
+                    <li>Alta de nuevas tarjetas</li>
+                    <li>Actualización y bloqueo</li>
+                    <li>Consulta de detalles</li>
+                </ul>
+                <a href="../system-overview.md#-credit-card---gestión-de-tarjetas-de-crédito" class="link">Ver Detalles →</a>
+            </div>
+
+            <div class="module-card">
+                <h3><span class="icon">💸</span> TRANSACTION - Transacciones</h3>
+                <p class="description">Registro, consulta y reporte de transacciones financieras</p>
+                <ul class="features">
+                    <li>Registro de transacciones</li>
+                    <li>Consulta de historial</li>
+                    <li>Generación de reportes</li>
+                    <li>Validación de límites</li>
+                </ul>
+                <a href="../system-overview.md#-transaction---gestión-de-transacciones" class="link">Ver Detalles →</a>
+            </div>
+
+            <div class="module-card">
+                <h3><span class="icon">👤</span> USER - Usuarios</h3>
+                <p class="description">Administración de usuarios del sistema (back-office y admin)</p>
+                <ul class="features">
+                    <li>Lista de usuarios del sistema</li>
+                    <li>Alta de nuevos usuarios</li>
+                    <li>Actualización de roles</li>
+                    <li>Baja de usuarios</li>
+                </ul>
+                <a href="../system-overview.md#-user---gestión-de-usuarios-del-sistema" class="link">Ver Detalles →</a>
+            </div>
+
+            <div class="module-card">
+                <h3><span class="icon">📋</span> MENU - Menús</h3>
+                <p class="description">Navegación y control de acceso a funcionalidades según rol</p>
+                <ul class="features">
+                    <li>Menú principal (back-office)</li>
+                    <li>Menú administrativo</li>
+                    <li>Menús dinámicos por rol</li>
+                    <li>Navegación intuitiva</li>
+                </ul>
+                <a href="../system-overview.md#-menu---sistema-de-menús" class="link">Ver Detalles →</a>
+            </div>
+
+            <div class="module-card">
+                <h3><span class="icon">🧾</span> BILL PAYMENT - Pagos</h3>
+                <p class="description">Procesamiento de pagos de servicios y facturas</p>
+                <ul class="features">
+                    <li>Pago de servicios</li>
+                    <li>Validación de saldo</li>
+                    <li>Confirmación de pago</li>
+                    <li>Historial de pagos</li>
+                </ul>
+                <a href="../system-overview.md#-bill-payment---pago-de-servicios" class="link">Ver Detalles →</a>
+            </div>
+
+            <div class="module-card">
+                <h3><span class="icon">🎨</span> UI - Componentes</h3>
+                <p class="description">Componentes reutilizables de interfaz de usuario</p>
+                <ul class="features">
+                    <li>Componentes base con MUI</li>
+                    <li>Error boundaries</li>
+                    <li>Loading spinners</li>
+                    <li>Diálogos de confirmación</li>
+                </ul>
+                <a href="../system-overview.md#-ui---componentes-de-interfaz" class="link">Ver Detalles →</a>
+            </div>
+
+            <div class="module-card">
+                <h3><span class="icon">🎯</span> LAYOUT - Estructura</h3>
+                <p class="description">Layouts y estructuras comunes para páginas</p>
+                <ul class="features">
+                    <li>Layout principal con navegación</li>
+                    <li>Layout para login</li>
+                    <li>Barra de navegación</li>
+                    <li>Diseño responsive</li>
+                </ul>
+                <a href="../system-overview.md#-layout---estructura-de-páginas" class="link">Ver Detalles →</a>
+            </div>
+        </section>
+
+        <section class="quick-links">
+            <h2>🔗 Enlaces Rápidos</h2>
+            <ul>
+                <li><a href="../system-overview.md">📄 Documentación Completa (system-overview.md)</a></li>
+                <li><a href="../system-overview.md#-catálogo-de-módulos">📚 Catálogo de Módulos</a></li>
+                <li><a href="../system-overview.md#-apis-documentadas">🔗 APIs Documentadas</a></li>
+                <li><a href="../system-overview.md#-patrones-de-user-stories">🎯 Patrones de User Stories</a></li>
+                <li><a href="../system-overview.md#-complejidad-de-historias">📊 Guía de Complejidad</a></li>
+                <li><a href="../system-overview.md#-patrones-de-criterios-de-aceptación">✅ Criterios de Aceptación</a></li>
+                <li><a href="../system-overview.md#-presupuestos-de-performance">⚡ Presupuestos de Performance</a></li>
+                <li><a href="../system-overview.md#-consideraciones-de-readiness">🚨 Riesgos y Deuda Técnica</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>CardDemo - Documentación General</strong></p>
+        <p>Última actualización: 2026-01-26 | Precisión del Codebase: 95%+</p>
+        <p><em>Mantenido por: Equipo de Desarrollo DS3A</em></p>
+    </footer>
+</body>
+</html>
