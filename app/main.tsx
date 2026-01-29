@@ -19,7 +19,7 @@ async function prepare() {
 
 prepare().then(() => {
   // Obtener el basename desde la variable de entorno de Vite
-  const basename = import.meta.env.DEV ? '/' : '/demo-sai-3-aws';
+  const basename = import.meta.env.DEV ? '/' : '/demo-sai-3-aws-lmmoreira-';
   
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
