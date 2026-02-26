@@ -97,15 +97,15 @@ export default function LoginPage() {
     const errors: Record<string, string> = {};
     
     if (!formData.userId.trim()) {
-      errors.userId = 'Informe seu ID de usuário.';
+      errors.userId = 'Please enter your user ID.';
     } else if (formData.userId.length > 8) {
-      errors.userId = 'O ID do usuário deve ter no máximo 8 caracteres.';
+      errors.userId = 'User ID must be at most 8 characters.';
     }
 
     if (!formData.password.trim()) {
-      errors.password = 'Informe sua senha.';
+      errors.password = 'Please enter your password.';
     } else if (formData.password.length > 8) {
-      errors.password = 'A senha deve ter no máximo 8 caracteres.';
+      errors.password = 'Password must be at most 8 characters.';
     }
     
     setFieldErrors(errors);
@@ -150,7 +150,7 @@ export default function LoginPage() {
   const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
     if (event.key === 'F3' || event.key === 'Escape') {
       event.preventDefault();
-      if (window.confirm('Tem certeza de que deseja sair do sistema?')) {
+      if (window.confirm('Are you sure you want to exit the system?')) {
         window.close();
       }
     }
@@ -162,10 +162,10 @@ export default function LoginPage() {
 
   const getErrorMessage = (error: string) => {
     const errorMappings: Record<string, string> = {
-      'Invalid credentials': 'Credenciais inválidas. Tente novamente.',
-      'User not found': 'Usuário não encontrado. Verifique o ID do usuário.',
-      'Please check your input': 'Verifique seu ID de usuário e senha.',
-      'Network error occurred': 'Não foi possível verificar suas credenciais. Verifique sua conexão.',
+      'Invalid credentials': 'Invalid credentials. Please try again.',
+      'User not found': 'User not found. Double-check your User ID.',
+      'Please check your input': 'Please check your User ID and password.',
+      'Network error occurred': 'Unable to verify your credentials. Check your connection.',
     };
 
     return errorMappings[error] || error;
@@ -195,8 +195,8 @@ export default function LoginPage() {
         <SystemHeader
           transactionId="CC00"
           programName="COSGN00C"
-          title="CardDemo - Aplicação de Demonstração"
-          subtitle="Modernização de Mainframe"
+          title="CardDemo - Demonstration Application"
+          subtitle="Mainframe Modernization"
           showNavigation={false}
         />
           
@@ -209,7 +209,7 @@ export default function LoginPage() {
               zIndex: 10,
             }}
           >
-            <Tooltip title="Ver documentação" arrow>
+          <Tooltip title="View documentation" arrow>
               <IconButton
                 onClick={handleOpenDocs}
                 size="small"
@@ -296,7 +296,7 @@ export default function LoginPage() {
               gutterBottom
               sx={{ mb: 3 }}
             >
-              Informe seu ID de usuário e senha e pressione ENTER:
+              Enter your user ID and password and press ENTER:
             </Typography>
 
             <Box
@@ -306,11 +306,11 @@ export default function LoginPage() {
             >
               <Stack spacing={3}>
                 <TextField
-                  label="ID do usuário"
+                  label="User ID"
                   value={formData.userId}
                   onChange={handleInputChange('userId')}
                   error={!!fieldErrors.userId}
-                  helperText={fieldErrors.userId || 'Máx. 8 caracteres'}
+                  helperText={fieldErrors.userId || 'Max 8 characters'}
                   disabled={isLoading}
                   autoFocus
                   inputProps={{
@@ -332,12 +332,12 @@ export default function LoginPage() {
                 />
 
                 <TextField
-                  label="Senha"
+                  label="Password"
                   type={showPassword ? 'text' : 'password'}
                   value={formData.password}
                   onChange={handleInputChange('password')}
                   error={!!fieldErrors.password}
-                  helperText={fieldErrors.password || 'Máx. 8 caracteres'}
+                  helperText={fieldErrors.password || 'Max 8 characters'}
                   disabled={isLoading}
                   autoComplete="current-password"
                   inputProps={{
@@ -417,7 +417,7 @@ export default function LoginPage() {
                     },
                   }}
                 >
-              {isLoading ? 'Entrando...' : 'ENTER = Entrar'}
+                  {isLoading ? 'Signing in...' : 'ENTER = Log in'}
                 </Button>
               </Stack>
             </Box>
@@ -426,7 +426,7 @@ export default function LoginPage() {
 
             <Box sx={{ textAlign: 'center' }}>
               <Typography variant="body2" color="text.secondary" gutterBottom>
-                Credenciais de exemplo:
+                Sample credentials:
               </Typography>
               <Stack direction="row" spacing={2} justifyContent="center" flexWrap="wrap">
                 <Typography variant="caption" sx={{ 
@@ -436,7 +436,7 @@ export default function LoginPage() {
                   py: 0.5,
                   borderRadius: 1,
                 }}>
-                  Administrador: ADMIN001 / PASSWORD
+                  Administrator: ADMIN001 / PASSWORD
                 </Typography>
                 <Typography variant="caption" sx={{ 
                   bgcolor: 'success.main', 
@@ -445,7 +445,7 @@ export default function LoginPage() {
                   py: 0.5,
                   borderRadius: 1,
                 }}>
-                  Usuário back-office: USER001 / PASSWORD
+                  Back-office user: USER001 / PASSWORD
                 </Typography>
               </Stack>
             </Box>
@@ -460,7 +460,7 @@ export default function LoginPage() {
             }}
           >
               <Typography variant="body2" color="text.secondary">
-              ENTER = Entrar • F3 = Sair
+              ENTER = Log in • F3 = Exit
               </Typography>
             </Box>
         </Paper>
