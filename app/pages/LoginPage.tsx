@@ -97,15 +97,15 @@ export default function LoginPage() {
     const errors: Record<string, string> = {};
     
     if (!formData.userId.trim()) {
-      errors.userId = 'Please enter your user ID.';
+      errors.userId = 'Informe seu ID de usuário.';
     } else if (formData.userId.length > 8) {
-      errors.userId = 'User ID must be 8 characters or fewer.';
+      errors.userId = 'O ID do usuário deve ter no máximo 8 caracteres.';
     }
 
     if (!formData.password.trim()) {
-      errors.password = 'Please enter your password.';
+      errors.password = 'Informe sua senha.';
     } else if (formData.password.length > 8) {
-      errors.password = 'Password must be 8 characters or fewer.';
+      errors.password = 'A senha deve ter no máximo 8 caracteres.';
     }
     
     setFieldErrors(errors);
@@ -150,7 +150,7 @@ export default function LoginPage() {
   const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
     if (event.key === 'F3' || event.key === 'Escape') {
       event.preventDefault();
-      if (window.confirm('Are you sure you want to exit the system?')) {
+      if (window.confirm('Tem certeza de que deseja sair do sistema?')) {
         window.close();
       }
     }
@@ -162,10 +162,10 @@ export default function LoginPage() {
 
   const getErrorMessage = (error: string) => {
     const errorMappings: Record<string, string> = {
-      'Invalid credentials': 'Invalid credentials. Please try again.',
-      'User not found': 'User not found. Check your user ID.',
-      'Please check your input': 'Please check your user ID and password.',
-      'Network error occurred': 'Unable to verify credentials. Check your connection.',
+      'Invalid credentials': 'Credenciais inválidas. Verifique seus dados.',
+      'User not found': 'Usuário não encontrado. Confira seu ID de usuário.',
+      'Please check your input': 'Verifique seu ID de usuário e senha.',
+      'Network error occurred': 'Não foi possível verificar as credenciais. Verifique sua conexão.',
     };
 
     return errorMappings[error] || error;
@@ -177,10 +177,10 @@ export default function LoginPage() {
       <Container maxWidth="md" sx={{ py: 4 }}>
         <Box sx={{ textAlign: 'center' }}>
           <Typography variant="h5" gutterBottom>
-            Redirecting...
+            Redirecionando...
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            You are already authenticated. Redirecting to your dashboard.
+            Você já está autenticado. Redirecionando para o painel.
           </Typography>
         </Box>
       </Container>
@@ -192,13 +192,13 @@ export default function LoginPage() {
       <Box onKeyDown={handleKeyDown} tabIndex={-1}>
         {/* ✅ MODIFICADO: SystemHeader con botón de documentación */}
         <Box sx={{ position: 'relative' }}>
-        <SystemHeader
-          transactionId="CC00"
-          programName="COSGN00C"
-          title="CardDemo - Demonstration Application"
-          subtitle="Mainframe Modernization"
-          showNavigation={false}
-        />
+          <SystemHeader
+            transactionId="CC00"
+            programName="COSGN00C"
+            title="CardDemo - Aplicação de Demonstração"
+            subtitle="Modernização de Mainframe"
+            showNavigation={false}
+          />
           
           {/* ✅ NUEVO: Botón de documentación discreto en el header */}
           <Box
@@ -209,7 +209,7 @@ export default function LoginPage() {
               zIndex: 10,
             }}
           >
-          <Tooltip title="Open documentation" arrow>
+          <Tooltip title="Abrir documentação" arrow>
               <IconButton
                 onClick={handleOpenDocs}
                 size="small"
@@ -289,15 +289,15 @@ export default function LoginPage() {
 
           {/* Resto del componente sin cambios... */}
           <Box sx={{ p: 4 }}>
-              <Typography
-                variant="h6"
-                color="primary.main"
-                textAlign="center"
-                gutterBottom
-                sx={{ mb: 3 }}
-              >
-                Enter your user ID and password and press ENTER:
-              </Typography>
+            <Typography
+              variant="h6"
+              color="primary.main"
+              textAlign="center"
+              gutterBottom
+              sx={{ mb: 3 }}
+            >
+              Digite seu ID de usuário e senha e pressione ENTER:
+            </Typography>
 
             <Box
               component="form"
@@ -306,11 +306,11 @@ export default function LoginPage() {
             >
               <Stack spacing={3}>
                 <TextField
-                  label="User ID"
+                  label="ID do usuário"
                   value={formData.userId}
                   onChange={handleInputChange('userId')}
                   error={!!fieldErrors.userId}
-                  helperText={fieldErrors.userId || 'Max 8 characters'}
+                  helperText={fieldErrors.userId || 'Máximo de 8 caracteres'}
                   disabled={isLoading}
                   autoFocus
                   inputProps={{
@@ -332,12 +332,12 @@ export default function LoginPage() {
                 />
 
                 <TextField
-                  label="Password"
+                  label="Senha"
                   type={showPassword ? 'text' : 'password'}
                   value={formData.password}
                   onChange={handleInputChange('password')}
                   error={!!fieldErrors.password}
-                  helperText={fieldErrors.password || 'Max 8 characters'}
+                  helperText={fieldErrors.password || 'Máximo de 8 caracteres'}
                   disabled={isLoading}
                   autoComplete="current-password"
                   inputProps={{
@@ -380,12 +380,12 @@ export default function LoginPage() {
                         {getErrorMessage(authError)}
                       </Alert>
                     ) : (
-                      <Alert
-                        severity="error"
-                        sx={{ borderRadius: 2 }}
-                      >
-                        Please correct the errors above.
-                      </Alert>
+                    <Alert
+                      severity="error"
+                      sx={{ borderRadius: 2 }}
+                    >
+                      Corrija os erros acima.
+                    </Alert>
                     )}
                   </>
                 )}
@@ -417,7 +417,7 @@ export default function LoginPage() {
                     },
                   }}
                 >
-                  {isLoading ? 'Signing in...' : 'ENTER = Sign in'}
+                  {isLoading ? 'Entrando...' : 'ENTER = Entrar'}
                 </Button>
               </Stack>
             </Box>
@@ -426,7 +426,7 @@ export default function LoginPage() {
 
             <Box sx={{ textAlign: 'center' }}>
               <Typography variant="body2" color="text.secondary" gutterBottom>
-                Example credentials:
+                Credenciais de exemplo:
               </Typography>
               <Stack direction="row" spacing={2} justifyContent="center" flexWrap="wrap">
                 <Typography variant="caption" sx={{ 
@@ -436,7 +436,7 @@ export default function LoginPage() {
                   py: 0.5,
                   borderRadius: 1,
                 }}>
-                  Administrator: ADMIN001 / PASSWORD
+                  Administrador: ADMIN001 / PASSWORD
                 </Typography>
                 <Typography variant="caption" sx={{ 
                   bgcolor: 'success.main', 
@@ -445,7 +445,7 @@ export default function LoginPage() {
                   py: 0.5,
                   borderRadius: 1,
                 }}>
-                  Back-office user: USER001 / PASSWORD
+                  Usuário back-office: USER001 / PASSWORD
                 </Typography>
               </Stack>
             </Box>
@@ -460,7 +460,7 @@ export default function LoginPage() {
               }}
             >
                 <Typography variant="body2" color="text.secondary">
-                ENTER = Sign in • F3 = Exit
+                ENTER = Entrar • F3 = Sair
                 </Typography>
               </Box>
         </Paper>
