@@ -250,13 +250,13 @@ export default function LoginPage() {
           >
             <CreditCard sx={{ fontSize: 48, mb: 2 }} />
             <Typography variant="h4" fontWeight={600} gutterBottom>
-              NATIONAL RESERVE NOTE
+              NOTA DA RESERVA NACIONAL
             </Typography>
             <Typography variant="h6" sx={{ opacity: 0.9 }}>
-              THE UNITED STATES OF KICSLAND
+              A REPÚBLICA DOS ESTADOS DE KICSLAND
             </Typography>
             
-            {/* ✅ CORRECCIÓN PRINCIPAL: Billete ASCII con espacios preservados */}
+            {/* ✅ CORREÇÃO PRINCIPAL: Bilhete ASCII com espaçamentos preservados */}
             <Box
               sx={{
                 mt: 2,
@@ -276,13 +276,13 @@ export default function LoginPage() {
               }}
             >
               {`+========================================+
-|%%%%%%%  NATIONAL RESERVE NOTE  %%%%%%%%|
-|%(1)  THE UNITED STATES OF KICSLAND (1)%|
+|%%%%%%%  NOTA DA RESERVA NACIONAL  %%%%%%%%|
+|%(1)  A REPÚBLICA DOS ESTADOS DE KICSLAND (1)%|
 |%$$              ___       ********  $$%|
-|%$    {x}       (o o)                 $%|
-|%$     ******  (  V  )      O N E     $%|
+|%$    (x)       (o o)                 $%|
+|%$     ******  (  V  )     UM DÓLAR     $%|
 |%(1)          ---m-m---             (1)%|
-|%%~~~~~~~~~~~ ONE DOLLAR ~~~~~~~~~~~~~%%|
+|%%~~~~~~~~~~~ UM REAL ~~~~~~~~~~~~~%%|
 +========================================+`}
             </Box>
           </Box>
