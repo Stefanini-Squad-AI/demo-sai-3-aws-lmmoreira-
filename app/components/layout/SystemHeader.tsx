@@ -141,7 +141,7 @@ export function SystemHeader({
                     onClick={handleHomeClick}
                     sx={{ borderRadius: 2 }}
                   >
-                    Home
+                    Início
                   </Button>
                   <Button
                     size="small"
@@ -151,7 +151,7 @@ export function SystemHeader({
                     onClick={handleLogout}
                     sx={{ borderRadius: 2 }}
                   >
-                    Logout
+                    Sair
                   </Button>
                 </Stack>
               )}
