@@ -25,8 +25,12 @@ interface SystemHeaderProps {
   transactionId: string;
   programName: string;
   title: string;
-  subtitle?: string | undefined; // ✅ CORRECCIÓN: Tipo explícito para exactOptionalPropertyTypes
+  subtitle?: string | undefined;
   showNavigation?: boolean;
+  /** Rótulo do chip de transação (ex.: "Trans.:"). Se não informado, usa "Tran:". */
+  transactionLabel?: string;
+  /** Rótulo do chip de programa (ex.: "Prog.:"). Se não informado, usa "Prog:". */
+  programLabel?: string;
 }
 
 export function SystemHeader({
@@ -35,6 +39,8 @@ export function SystemHeader({
   title,
   subtitle,
   showNavigation = true,
+  transactionLabel = 'Tran:',
+  programLabel = 'Prog:',
 }: SystemHeaderProps) {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -104,13 +110,13 @@ export function SystemHeader({
           >
             <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
               <Chip
-                label={`Tran: ${transactionId}`}
+                label={`${transactionLabel} ${transactionId}`}
                 size="small"
                 variant="outlined"
                 color="primary"
               />
               <Chip
-                label={`Prog: ${programName}`}
+                label={`${programLabel} ${programName}`}
                 size="small"
                 variant="outlined"
                 color="secondary"
